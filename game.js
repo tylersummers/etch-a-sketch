@@ -10,20 +10,22 @@ for (let i = 0; i < 256; i++) {
     container.appendChild(cell)
 }
 
-// Colour on Hover Effect
 function hoverEffect() {
     const cell = document.querySelectorAll('.cell')
     cell.forEach(cell => {
     cell.addEventListener("mouseover", (event) => {
-        let colour = Math
-        event.target.style.backgroundColor = "blue"
+        const min = 0
+        const max = 255
+        let r = String(Math.floor(Math.random() * (max - min + 1)) + min);
+        let g = String(Math.floor(Math.random() * (max - min + 1)) + min);
+        let b = String(Math.floor(Math.random() * (max - min + 1)) + min);
+        event.target.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")"
     })
 })
 }
 
 hoverEffect();
 
-// Enable changes to grid size
 const button = document.querySelector('button')
 button.addEventListener("click", (event) => {
     let gridSize = window.prompt("Enter number of squares per side! (1-100)")
